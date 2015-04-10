@@ -19,7 +19,6 @@ The database `mongo_esc` is an extremely simple database.
 >>> db = DB()
 >>> db.connect()
 >>> db.change_db("eric")
->>> db.save_data("schles",{"answer to everything":42})
 >>> db.get_data("schles",document={"answer to everything":42})
 [{u'answer to everything': 42}]
 >>> db.get_data("schles",keys=["answer to everything"])
