@@ -25,6 +25,7 @@ The database `mongo_esc` is an extremely simple database.
 [{u'answer to everything': 42}]
 >>> db.get_data("schles",values=[42])
 [{u'answer to everything': 42}]
+>>> db.save_data("schles",{"thingsz":"happy"})
 ```
 
 
