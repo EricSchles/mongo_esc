@@ -36,9 +36,10 @@ class DB:
                                 to_return.append({key:doc[key]})
                 if values:
                     for doc in to_search:
-                        for key in doc.keys():
-                            if value == doc[key]:
-                                to_return.append({key:doc[key]})
+                        for value in values:
+                            for key in doc.keys():
+                                if value == doc[key]:
+                                    to_return.append({key:doc[key]})
                 if ids:
                     for Id in ids:
                         if Id in glob("*"):
@@ -54,11 +55,13 @@ class DB:
                                 if key in keys:
                                     to_return.append({key:doc[key]})
                         if values:
-                            for key in doc.keys():
-                                if value == doc[key]:
-                                    to_return.append({key:doc[key]})
+                            for value in values:
+                                for key in doc.keys():
+                                    if value == doc[key]:
+                                        to_return.append({key:doc[key]})
                     else:
                         to_return.append(doc)
+        os.chdir("../")
         return to_return
 
     def create_db(self,db_name):
