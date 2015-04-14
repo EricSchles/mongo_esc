@@ -7,7 +7,7 @@ The database `mongo_esc` is an extremely simple database.
 ###Connecting
 
 ```
->>> from database_store import DB
+>>> from client import DB
 >>> db = DB()
 >>> db.connect()
 ```
@@ -15,15 +15,18 @@ The database `mongo_esc` is an extremely simple database.
 ###Putting Data In && Getting Data Out
 
 ```
->>> from database_store import DB
+>>> from client import DB
 >>> db = DB()
 >>> db.connect()
 >>> db.change_db("eric")
->>> db.get_data("schles",document={"answer to everything":42})
+>>> parameters={"keys":None,"values":None,"document":{"answer to everything":42}}
+>>> db.get_data("schles",parameters=parameters)
 [{u'answer to everything': 42}]
->>> db.get_data("schles",keys=["answer to everything"])
+>>> parameters={"keys":["answer to everything"],"values":None,"document":None}
+>>> db.get_data("schles",parameters=parameters)
 [{u'answer to everything': 42}]
->>> db.get_data("schles",values=[42])
+>>> parameters={"keys":None,"values":[42],"document":None}
+>>> db.get_data("schles",parameters=parameters)
 [{u'answer to everything': 42}]
 >>> db.save_data("schles",{"thingsz":"happy"})
 ```
