@@ -28,7 +28,7 @@ class DB:
                     "document":None
                 }
             result = req.post(self.server+"get_data/"+collection+"/"+json.dumps(parameters))
-            return result
+            return json.loads(result.text)
         else:
             if type(parameters) != type({}):
                 print """
